@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>利用filter实现数组去重 | 我的博客</title>
+  <title>js正则分组反向引用 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345var arr=[1,2,2,3,3,4,1,5];var newArr=arr.filter((item,index,array)=&amp;gt;&amp;#123;	return index==array.indexOf(item)	&amp;#125;)console.log(newArr);//[1,2,3,4,5]">
+  <meta name="description" content="12var reg=/(\d&amp;#123;4&amp;#125;)-(\d&amp;#123;2&amp;#125;)-(\d&amp;#123;2&amp;#125;)/g;&amp;quot;2017-12-22&amp;quot;.replace(reg,&amp;apos;$2-$3-$1&amp;apos;)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用filter实现数组去重">
-<meta property="og:url" content="http://yoursite.com/2017/12/20/利用filter实现数组去重/index.html">
+<meta property="og:title" content="js正则分组反向引用">
+<meta property="og:url" content="http://yoursite.com/2017/12/22/regular-backreferences/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="12345var arr=[1,2,2,3,3,4,1,5];var newArr=arr.filter((item,index,array)=&amp;gt;&amp;#123;	return index==array.indexOf(item)	&amp;#125;)console.log(newArr);//[1,2,3,4,5]">
-<meta property="og:updated_time" content="2017-12-20T06:04:16.983Z">
+<meta property="og:description" content="12var reg=/(\d&amp;#123;4&amp;#125;)-(\d&amp;#123;2&amp;#125;)-(\d&amp;#123;2&amp;#125;)/g;&amp;quot;2017-12-22&amp;quot;.replace(reg,&amp;apos;$2-$3-$1&amp;apos;)">
+<meta property="og:updated_time" content="2017-12-22T01:34:12.451Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用filter实现数组去重">
-<meta name="twitter:description" content="12345var arr=[1,2,2,3,3,4,1,5];var newArr=arr.filter((item,index,array)=&amp;gt;&amp;#123;	return index==array.indexOf(item)	&amp;#125;)console.log(newArr);//[1,2,3,4,5]">
+<meta name="twitter:title" content="js正则分组反向引用">
+<meta name="twitter:description" content="12var reg=/(\d&amp;#123;4&amp;#125;)-(\d&amp;#123;2&amp;#125;)-(\d&amp;#123;2&amp;#125;)/g;&amp;quot;2017-12-22&amp;quot;.replace(reg,&amp;apos;$2-$3-$1&amp;apos;)">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -153,27 +153,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-利用filter实现数组去重" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-regular-backreferences" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      利用filter实现数组去重
+      js正则分组反向引用
     </h1>
   
 
         
-        <a href="/2017/12/20/利用filter实现数组去重/" class="archive-article-date">
-  	<time datetime="2017-12-20T05:33:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-20</time>
+        <a href="/2017/12/22/regular-backreferences/" class="archive-article-date">
+  	<time datetime="2017-12-22T01:15:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr=[1,2,2,3,3,4,1,5];</div><div class="line">var newArr=arr.filter((item,index,array)=&gt;&#123;</div><div class="line">	return index==array.indexOf(item)</div><div class="line">	&#125;)</div><div class="line">console.log(newArr);//[1,2,3,4,5]</div></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var reg=/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g;</div><div class="line">&quot;2017-12-22&quot;.replace(reg,&apos;$2-$3-$1&apos;)</div></pre></td></tr></table></figure>
       
 
       
@@ -252,7 +252,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/12/20/利用filter实现数组去重/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/12/22/regular-backreferences/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -266,18 +266,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/12/22/regular-backreferences/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/27/delete删除对象属性/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          js正则分组反向引用
+          delete删除对象属性
         
       </div>
     </a>
   
   
-    <a href="/2017/12/20/正则表达式1-定义正则/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">正则表达式1-定义正则</div>
+    <a href="/2017/12/20/利用filter实现数组去重/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用filter实现数组去重</div>
       <i class="icon-circle-right"></i>
     </a>
   
