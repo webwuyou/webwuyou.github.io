@@ -171,7 +171,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var obj1=&#123;</div><div class="line">	name:&quot;张三&quot;,</div><div class="line">	age:28</div><div class="line">&#125;;</div><div class="line">var obj2=obj1;</div><div class="line">obj2.name=&quot;李四&quot;</div><div class="line"></div><div class="line">console.log(obbj1.name);//李四</div><div class="line">console.log(obbj2.name);//李四</div></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var obj1=&#123;</div><div class="line">	name:&quot;张三&quot;,</div><div class="line">	age:28</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var obj2=obj1;</div><div class="line"></div><div class="line">obj2.name=&quot;李四&quot;</div><div class="line"></div><div class="line">console.log(obbj1.name);//李四</div><div class="line">console.log(obbj2.name);//李四</div></pre></td></tr></table></figure>
+<p>对象和函数都是对象引用的关系，obj1和obj2指向同一个内存地址，所以当obj2改变时，也会影响到obj1</p>
+
+
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3];</div><div class="line">var b=a;//此时，a和b同一个引用</div><div class="line">b.push(4);</div><div class="line">console.log(b);//[1,2,3,4]</div><div class="line">console.log(a);//[1,2,3,4] 对象的引用</div><div class="line"></div><div class="line"></div><div class="line">var a=[1,2,3];</div><div class="line">var b=a;//此时同一个引用</div><div class="line">b=[1,2,3,4];//此时b又重新占用了一个新地址，与之前的脱离了</div><div class="line">console.log(b);//[1,2,3,4];</div><div class="line">console.log(a);//[1,2,3];不是同一个引用</div></pre></td></tr></table></figure>
+
       
 
       
