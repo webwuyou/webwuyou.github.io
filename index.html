@@ -151,6 +151,62 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ES6拓展运算符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/29/ES6拓展运算符/">ES6拓展运算符</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/29/ES6拓展运算符/" class="archive-article-date">
+  	<time datetime="2017-12-29T08:47:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="拓展运算符"><a href="#拓展运算符" class="headerlink" title="拓展运算符"></a>拓展运算符</h1><p>定义：拓展运算符是三个点（…），将一个数组、类数组、字符串转为用逗号隔开的序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">let arr1=[1,2,3,,4];</div><div class="line">console.log(...arr1);</div><div class="line"></div><div class="line">let arr2=[1,2,3,[5,6,7],8]</div><div class="line">console.log(...arr2)</div></pre></td></tr></table></figure></p>
+<p><strong> 注意：只能解构最外层的数组*，如果里面还有数组，还是会整体输出 </strong></p>
+<h3 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let arr1=[1,2,3];</div><div class="line">let arr2=[4,5,6];</div><div class="line">let arr3=[...arr1,...arr2];</div><div class="line">console.log(arr3);//[1,2,3,4,5,6];</div></pre></td></tr></table></figure>
+<h3 id="将字符串转化为数组"><a href="#将字符串转化为数组" class="headerlink" title="将字符串转化为数组"></a>将字符串转化为数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let str=&quot;前端无忧网&quot;;</div><div class="line">let arr=[...str];</div><div class="line">console.log(arr);//[&quot;前&quot;,&quot;端&quot;,&quot;无&quot;,&quot;忧&quot;,&quot;网&quot;]</div></pre></td></tr></table></figure>
+<h3 id="将DOM节点类数组转换为数组"><a href="#将DOM节点类数组转换为数组" class="headerlink" title="将DOM节点类数组转换为数组"></a>将DOM节点类数组转换为数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;1&lt;/li&gt;</div><div class="line">	&lt;li&gt;2&lt;/li&gt;</div><div class="line">	&lt;li&gt;3&lt;/li&gt;</div><div class="line">	&lt;li&gt;4&lt;/li&gt;</div><div class="line">	&lt;li&gt;5&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">let list=document.querySelectorAll(&quot;li&quot;);</div><div class="line">let arr=[...list];</div><div class="line">console.log(arr);//[li,li,li,li,li]</div></pre></td></tr></table></figure>
+<h3 id="数组的深拷贝"><a href="#数组的深拷贝" class="headerlink" title="数组的深拷贝"></a>数组的深拷贝</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let arr1=[1,2,3];</div><div class="line">let arr2=arr1;</div><div class="line">let arr3=[...arr1];</div><div class="line">arr1[0]=10;</div><div class="line">console.log(arr1);//[10,2,3]</div><div class="line">console.log(arr2);//[10,2,3]</div><div class="line">console.log(arr3);//[1,2,3]</div></pre></td></tr></table></figure>
+<p><strong>数组的深拷贝就是要遍历数组的每一项，直接赋值，两个数组的你地址在内存中是同一个，其中一个的改变会影响另一个，用拓展运算符就不会了</strong></p>
+<p>##替代数组的apply方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function sum(x,y,z)&#123;</div><div class="line">	return x+y+z</div><div class="line">&#125;;</div><div class="line">var args=[4,5,6];</div><div class="line"></div><div class="line">&lt;!-- ES5方法 --&gt;</div><div class="line">console.log(sum.apply(null,args));//15</div><div class="line"></div><div class="line">&lt;!-- ES6方法 --&gt;</div><div class="line">console.log(sum(...args));//15</div></pre></td></tr></table></figure></p>
+<h3 id="求数组的最大值"><a href="#求数组的最大值" class="headerlink" title="求数组的最大值"></a>求数组的最大值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr=[14,3,77];</div><div class="line">&lt;!-- ES5方法 --&gt;</div><div class="line">console.log(Math.max.apply(null,arr));//77</div><div class="line">&lt;!-- ES6方法 --&gt;</div><div class="line">console.log(Math.max(...arr));//77</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/29/ES6拓展运算符/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-js-对象深拷贝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -608,62 +664,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/29/hello-world/" class="archive-article-date">
-  	<time datetime="2017-06-29T05:47:15.154Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/29/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
