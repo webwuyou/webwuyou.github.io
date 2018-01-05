@@ -253,6 +253,121 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/js选取对象中的部分属性和值组成新对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘赛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端无忧网">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/05/js选取对象中的部分属性和值组成新对象/" itemprop="url">js选取对象中的部分属性和值组成新对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-05T09:14:15+08:00">
+                2018-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在实际的开发过程中，经常有一种场景，就是后台接口返回一个大的对象集合，但是我们只需要其中的几个属性和对应的值，组成新的对象。常规做法是通过循环来实现的。</p>
+<h2 id="使用for-of循环实现"><a href="#使用for-of循环实现" class="headerlink" title="使用for of循环实现"></a>使用for of循环实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var arr=[</div><div class="line">	&#123;</div><div class="line">		name:&quot;张三&quot;,</div><div class="line">		age:28,</div><div class="line">		sex:&quot;男&quot;</div><div class="line">	&#125;,</div><div class="line">	&#123;</div><div class="line">		name:&quot;李四&quot;,</div><div class="line">		age:18,</div><div class="line">		sex:&quot;女&quot;</div><div class="line">	&#125;,</div><div class="line">];</div><div class="line"></div><div class="line">var newArr=[];</div><div class="line">for(var item of arr)&#123;</div><div class="line">	newArr.push(&#123;</div><div class="line">		name:item.name,</div><div class="line">		sex:item.sex</div><div class="line">		&#125;)</div><div class="line">&#125;</div><div class="line">console.log(newArr)</div></pre></td></tr></table></figure>
+<p><strong>这种方式虽然可以，但是总感觉不是很简洁</strong></p>
+<h2 id="使用ES6解构赋值来实现"><a href="#使用ES6解构赋值来实现" class="headerlink" title="使用ES6解构赋值来实现"></a>使用ES6解构赋值来实现</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var arr=[</div><div class="line">	&#123;</div><div class="line">		name:&quot;张三&quot;,</div><div class="line">		age:28,</div><div class="line">		sex:&quot;男&quot;</div><div class="line">	&#125;,</div><div class="line">	&#123;</div><div class="line">		name:&quot;李四&quot;,</div><div class="line">		age:18,</div><div class="line">		sex:&quot;女&quot;</div><div class="line">	&#125;,</div><div class="line">];</div><div class="line">var newArr=[];</div><div class="line">for(var item of arr)&#123;</div><div class="line">	var &#123;name,sex&#125;=item</div><div class="line">	newArr.push(&#123;name,sex&#125;)</div><div class="line">&#125;</div><div class="line">console.log(newArr)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/30/css3-flex布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1296,119 +1411,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/测试文章/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘赛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端无忧网">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/19/测试文章/" itemprop="url">测试文章</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-19T10:28:29+08:00">
-                2017-12-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="测试文章"><a href="#测试文章" class="headerlink" title="测试文章"></a>测试文章</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1458,7 +1460,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -1504,7 +1506,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
