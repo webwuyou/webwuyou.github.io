@@ -253,6 +253,128 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/12/es6新版教程2-let和const新的声明方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘赛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端无忧网">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/12/es6新版教程2-let和const新的声明方式/" itemprop="url">es6新版教程2-let和const新的声明方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-12T14:35:23+08:00">
+                2018-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>以前，我们都是通过var来申明变量，es6对声明进行了拓展。</p>
+<h2 id="var声明"><a href="#var声明" class="headerlink" title="var声明"></a>var声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var a=&quot;webwuyou&quot;</div><div class="line">console.log(a)</div></pre></td></tr></table></figure>
+<p>var声明的是全局变量，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a=2;</div><div class="line">&#123;</div><div class="line">	var a=3;</div><div class="line">&#125;</div><div class="line">console.log(a);//3</div></pre></td></tr></table></figure></p>
+<h2 id="let局部声明"><a href="#let局部声明" class="headerlink" title="let局部声明"></a>let局部声明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a=2;</div><div class="line">&#123;</div><div class="line">	let a=3</div><div class="line">&#125;</div><div class="line">console.log(a);//2</div></pre></td></tr></table></figure>
+<p>上面两个例子说明let是声明局部变量，let只在区块内起作用，块级作用域外部是不能调用的。</p>
+<h3 id="let主要是防止数据污染的"><a href="#let主要是防止数据污染的" class="headerlink" title="let主要是防止数据污染的"></a>let主要是防止数据污染的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;10;i++)&#123;</div><div class="line">	console.log(&quot;循环体内；&quot;+i);//1~9</div><div class="line">&#125;</div><div class="line">console.log(&quot;循环体外：&quot;+i);//10</div></pre></td></tr></table></figure>
+<p>这个时候，循环体外的i变量被污染了，如果在循环外再使用i的话，就会出现问题。<br>如果这个时候使用let声明，就可以解决这个问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for(let i=0;i&lt;10;i++)&#123;</div><div class="line">	console.log(&quot;循环体内：&quot;+i)</div><div class="line">&#125;</div><div class="line">console.log(&quot;循环体外：&quot;+i)</div></pre></td></tr></table></figure>
+<p>这个时候，在循环体外再使用i就会报错，提示i没有undefined</p>
+<h2 id="const声明常量"><a href="#const声明常量" class="headerlink" title="const声明常量"></a>const声明常量</h2><p>const声明一个常量，声明以后，不再允许修改了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const a=&quot;webwuyou&quot;;</div><div class="line">a=&quot;com&quot;</div><div class="line">console.log(a)</div></pre></td></tr></table></figure></p>
+<p>声明常量以后，再去赋值，就会报错了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/12/es6新版教程1-配置babel转换器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1294,117 +1416,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/利用filter实现数组去重/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘赛">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端无忧网">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/20/利用filter实现数组去重/" itemprop="url">利用filter实现数组去重</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-20T13:33:49+08:00">
-                2017-12-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var arr=[1,2,2,3,3,4,1,5];</div><div class="line">var newArr=arr.filter((item,index,array)=&gt;&#123;</div><div class="line">	return index==array.indexOf(item)</div><div class="line">	&#125;)</div><div class="line">console.log(newArr);//[1,2,3,4,5]</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1454,7 +1465,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
