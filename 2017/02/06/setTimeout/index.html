@@ -93,13 +93,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="webwuyou博客迁移啦">
-<meta property="og:url" content="http://webwuyou.gitee.io/webwuyou博客迁移啦/index.html">
+<meta name="description" content="先直接来看代码12345for(var i=0;i&amp;lt;10;i++)&amp;#123;	setTimeout(function()&amp;#123;		console.log(i);//打印十个10	&amp;#125;,5000)&amp;#125; 从结果上来看，for循环执行完跳出之后，才开始执行setTimeout（所有i才等于10），为什么不是每次迭代都执行一次setTimeout呢？ 这是因为，在ES6之前，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="setTimeOut的执行机制">
+<meta property="og:url" content="http://webwuyou.gitee.io/2017/02/06/setTimeout/index.html">
 <meta property="og:site_name" content="前端无忧网">
-<meta property="og:updated_time" content="2017-12-30T03:22:49.819Z">
+<meta property="og:description" content="先直接来看代码12345for(var i=0;i&amp;lt;10;i++)&amp;#123;	setTimeout(function()&amp;#123;		console.log(i);//打印十个10	&amp;#125;,5000)&amp;#125; 从结果上来看，for循环执行完跳出之后，才开始执行setTimeout（所有i才等于10），为什么不是每次迭代都执行一次setTimeout呢？ 这是因为，在ES6之前，">
+<meta property="og:updated_time" content="2018-02-06T02:05:13.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="webwuyou博客迁移啦">
+<meta name="twitter:title" content="setTimeOut的执行机制">
+<meta name="twitter:description" content="先直接来看代码12345for(var i=0;i&amp;lt;10;i++)&amp;#123;	setTimeout(function()&amp;#123;		console.log(i);//打印十个10	&amp;#125;,5000)&amp;#125; 从结果上来看，for循环执行完跳出之后，才开始执行setTimeout（所有i才等于10），为什么不是每次迭代都执行一次setTimeout呢？ 这是因为，在ES6之前，">
 
 
 
@@ -127,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://webwuyou.gitee.io/webwuyou博客迁移啦/"/>
+  <link rel="canonical" href="http://webwuyou.gitee.io/2017/02/06/setTimeout/"/>
 
 
 
 
 
-  <title>webwuyou博客迁移啦 | 前端无忧网</title>
+  <title>setTimeOut的执行机制 | 前端无忧网</title>
   
 
 
@@ -253,18 +256,229 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">webwuyou博客迁移啦</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://webwuyou.gitee.io/2017/02/06/setTimeout/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘赛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端无忧网">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">setTimeOut的执行机制</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-06T09:09:50+08:00">
+                2017-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
+
+    <div class="post-body" itemprop="articleBody">
+
       
+      
+
+      
+        <p>先直接来看代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;10;i++)&#123;</div><div class="line">	setTimeout(function()&#123;</div><div class="line">		console.log(i);//打印十个10</div><div class="line">	&#125;,5000)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>从结果上来看，for循环执行完跳出之后，才开始执行setTimeout（所有i才等于10），为什么不是每次迭代都执行一次setTimeout呢？</p>
+<p>这是因为，在ES6之前，js是没有块级作用域的，这就意味着，在for循环中定义的变量i,其实是属于全局的，即在全局范围内都可以被访问到，所以每次for循环都在更新这个变量i。</p>
+<p>为什么整个for循环会先于setTimeout执行，而不是一次循环执行一次？</p>
+<p>因为js是单线程的，单线程意味着，所有任务需要排队，前一个任务结束，才会执行下一个任务。如果前一个任务耗时很长，后一个任务就不得不一直等着。</p>
+<p>为了优化单线程的性能，js将任务分为两种，一种是同步任务(sync)，一种是异步任务(async)。同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；异步任务指的是，不进入主线程、而进入任务队列的任务，只有主线程的同步任务执行完毕，异步任务才会进入执行队列执行。只要主线程空了，就会去读取任务队列，这就是js的运行机制。这个过程会不断重复。</p>
+<p>而setTimeout，就被JavaScript定义为异步任务。每次for循环的迭代，都将setTimeout中的回调函数加入任务队列等待执行。也就是说，只有同步任务中的for循环完全结束，主线程中才会去任务队列中找到尚未执行的十个setTimeout（十次迭代）回调函数并顺序执行（先进先出）。而此时，i已经经过循环结束变成了10，所以，此时主线程执行的，是十个一摸一样的打印i的回调函数，即打印十个10。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">for(var i=0;i&lt;10;i++)&#123;&#125;</div><div class="line">setTimeout(console.log(i),5000)</div><div class="line">setTimeout(console.log(i),5000)</div><div class="line">setTimeout(console.log(i),5000)</div><div class="line">setTimeout(console.log(i),5000)</div><div class="line">setTimeout(console.log(i),5000)</div><div class="line">setTimeout(console.log(i),5000)</div><div class="line">setTimeout(console.log(i),5000)</div><div class="line">setTimeout(console.log(i),5000)</div><div class="line">setTimeout(console.log(i),5000)</div><div class="line">setTimeout(console.log(i),5000)</div></pre></td></tr></table></figure>
+<p>setTimeout属于异步执行函数，js遇到setTimeout时，会将该函数放入等待队列，等待当前主线程执行完毕以后开始执行setTimeout，如果有多个setTimeout，都会放到等待队列。</p>
+<p>那么这里队列里的多个setTimeout谁先执行呢？就是根据setTimeout里的第二个参数(延时时间)决定的，<br>最后，给出一个很小但是仍然在困扰我的一个问题,希望有兴趣的小伙伴可以跟我一起研究：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setTimeout(function()&#123;while(true)&#123;&#125;&#125;,6000);</div><div class="line">setTimeout(function()&#123;console.log(1)&#125;,10000);</div><div class="line">setTimeout(function()&#123;console.log(2)&#125;,5000);</div></pre></td></tr></table></figure>
+<p>语句执行，立即插入队列。同步任务执行完后5秒，开始第一个异步任务，输出2。第6秒开始第二个异步任务，死循环。因为第二个任务一直没有完成，所以第三个任务输出1会一直等待，并不会在第10秒准时开始。</p>
+
+      
+    </div>
+
+    <div>
+  
+    <div>
     
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="刘赛 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="刘赛 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      刘赛
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://webwuyou.gitee.io/2017/02/06/setTimeout/" title="setTimeOut的执行机制">http://webwuyou.gitee.io/2017/02/06/setTimeout/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/26/CSS-left-fixed-right-auto-layout/" rel="next" title="CSS 左边固定右边自适应布局">
+                <i class="fa fa-chevron-left"></i> CSS 左边固定右边自适应布局
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/29/my-new-post/" rel="prev" title="my new post">
+                my new post <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
   </div>
 
 
@@ -558,10 +772,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
