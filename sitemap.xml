@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://webwuyou.gitee.io/2018/03/07/vuex%E6%95%99%E7%A8%8B%E4%B8%80vuex%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/</loc>
+    
+    <lastmod>2018-03-07T01:58:41.635Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://webwuyou.gitee.io/2017/04/22/build-a-to-do-app-with-vue2/</loc>
     
     <lastmod>2018-02-22T06:43:54.911Z</lastmod>
