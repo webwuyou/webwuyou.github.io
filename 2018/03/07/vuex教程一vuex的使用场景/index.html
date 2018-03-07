@@ -95,13 +95,13 @@
 
 <meta name="description" content="vuex是vue全家桶中不可或缺的部分，按照官方的说明，vuex是一个专门为vue应用程式开发的状态管理模式。  Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vuex-Usage-scenarios">
+<meta property="og:title" content="vuex使用心得-vuex的使用场景">
 <meta property="og:url" content="http://webwuyou.gitee.io/2018/03/07/vuex教程一vuex的使用场景/index.html">
 <meta property="og:site_name" content="前端无忧网">
 <meta property="og:description" content="vuex是vue全家桶中不可或缺的部分，按照官方的说明，vuex是一个专门为vue应用程式开发的状态管理模式。  Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试">
-<meta property="og:updated_time" content="2018-03-07T01:58:41.635Z">
+<meta property="og:updated_time" content="2018-03-07T02:35:55.850Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vuex-Usage-scenarios">
+<meta name="twitter:title" content="vuex使用心得-vuex的使用场景">
 <meta name="twitter:description" content="vuex是vue全家桶中不可或缺的部分，按照官方的说明，vuex是一个专门为vue应用程式开发的状态管理模式。  Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试">
 
 
@@ -136,7 +136,7 @@
 
 
 
-  <title>vuex-Usage-scenarios | 前端无忧网</title>
+  <title>vuex使用心得-vuex的使用场景 | 前端无忧网</title>
   
 
 
@@ -302,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vuex-Usage-scenarios</h1>
+          <h1 class="post-title" itemprop="name headline">vuex使用心得-vuex的使用场景</h1>
         
 
         <div class="post-meta">
@@ -358,6 +358,13 @@
 <blockquote>
 <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。Vuex 也集成到 Vue 的官方调试工具 devtools extension，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>
 </blockquote>
+<p>说实话，官方的东西即使写得再好，对刚接触vue的人来说，还是有些难以理解。这里所说的状态，就是数据，我们甚至可以理解为vue实例中的data，data中的每个数据都可以称为状态。</p>
+<p>那么问题来了，既然vue实例中已经有了状态，为什么又要弄一个vuex呢？</p>
+<p>其实，尤大神为我们考虑的非常长远。因为在大型项目中，可能每个组件都有大量的状态(数据)，又有很多页面的状态和组件都是公用的，如果一个组件中改变了某个状态的值，所有组件的这个状态都要改变，而大家都知道vue父子组件之间的传值还是比较简单单，但是如果组件嵌套太深，还有兄弟组件之间，那么整个改变将变得非常麻烦。</p>
+<p>如果还觉得费解，就来看看实际的场景。在做购物车的时候，商品列表、商品详情、下订单、购物车列表……很多地方都可以添加、减少购物车的数量，一个地方改变了数量，其他所有地方都应该都改变；还有做登录的时候，登录后修改了个人信息，头部公共部分也要同步改变，还有全局的通知消息数量等等，这些状态大部分是全局公共性的，如果我们每次都是通过组件传值，实现起来会非常麻烦，组件之间也是严重的耦合，在这样的场景下，vuex作为状态管理应运而生。</p>
+<p>我们可以把项目中这些全局共享状态放到vuex中，只要vuex中的状态改变了，所有用到这个状态的地方的值就全部改变了，我们不用去担心怎么传值了。</p>
+<p>当然，只是建议中大型的项目，vuex是首选的状态管理工具，如果你的项目组件简单的，通过组件通信传值就足够了，毕竟引入vuex也会增加使用成本。</p>
+<p><strong>今天的内容全部都是理论性的，主要是按照自己的理解来说下vuex的使用场景，让大家有个基本的了解，如果内容有误，还请大侠不吝赐教！</strong></p>
 
       
     </div>
@@ -417,7 +424,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://webwuyou.gitee.io/2018/03/07/vuex教程一vuex的使用场景/" title="vuex-Usage-scenarios">http://webwuyou.gitee.io/2018/03/07/vuex教程一vuex的使用场景/</a>
+      <a href="http://webwuyou.gitee.io/2018/03/07/vuex教程一vuex的使用场景/" title="vuex使用心得-vuex的使用场景">http://webwuyou.gitee.io/2018/03/07/vuex教程一vuex的使用场景/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -449,6 +456,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/07/vuex使用心得-state的使用/" rel="prev" title="vuex使用心得-state的使用">
+                vuex使用心得-state的使用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -536,7 +547,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
