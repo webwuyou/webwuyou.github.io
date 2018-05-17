@@ -99,6 +99,7 @@
 <meta property="og:url" content="http://webwuyou.gitee.io/2016/11/27/delete删除对象属性/index.html">
 <meta property="og:site_name" content="前端无忧网">
 <meta property="og:description" content="对象属性删除1234567var person=&amp;#123;	name:&amp;quot;张三&amp;quot;,	age:28&amp;#125;console.log(person.name);//张三delete person.name;console.log(person.name);//undefined 注意：直接用delete删除不了变量123var name=&amp;quot;李四&amp;quot;delete">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-12T08:48:54.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="delete删除对象属性">
@@ -354,9 +355,9 @@
       
 
       
-        <p>对象属性删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var person=&#123;</div><div class="line">	name:&quot;张三&quot;,</div><div class="line">	age:28</div><div class="line">&#125;</div><div class="line">console.log(person.name);//张三</div><div class="line">delete person.name;</div><div class="line">console.log(person.name);//undefined</div></pre></td></tr></table></figure></p>
-<p>注意：直接用delete删除不了变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var name=&quot;李四&quot;</div><div class="line">delete name;</div><div class="line">console.log(name);//李四</div></pre></td></tr></table></figure></p>
-<p>删除不了原型链中的变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function fun() &#123;</div><div class="line">	this.name = &apos;mm&apos;;</div><div class="line">&#125;</div><div class="line">var obj = new fun();</div><div class="line">fun.prototype.age = 18;</div><div class="line">delete obj.age;</div><div class="line">console.log(obj.age) //18</div></pre></td></tr></table></figure></p>
+        <p>对象属性删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var person=&#123;</span><br><span class="line">	name:&quot;张三&quot;,</span><br><span class="line">	age:28</span><br><span class="line">&#125;</span><br><span class="line">console.log(person.name);//张三</span><br><span class="line">delete person.name;</span><br><span class="line">console.log(person.name);//undefined</span><br></pre></td></tr></table></figure></p>
+<p>注意：直接用delete删除不了变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var name=&quot;李四&quot;</span><br><span class="line">delete name;</span><br><span class="line">console.log(name);//李四</span><br></pre></td></tr></table></figure></p>
+<p>删除不了原型链中的变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function fun() &#123;</span><br><span class="line">	this.name = &apos;mm&apos;;</span><br><span class="line">&#125;</span><br><span class="line">var obj = new fun();</span><br><span class="line">fun.prototype.age = 18;</span><br><span class="line">delete obj.age;</span><br><span class="line">console.log(obj.age) //18</span><br></pre></td></tr></table></figure></p>
 
       
     </div>

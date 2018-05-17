@@ -100,6 +100,7 @@
 <meta property="og:url" content="http://webwuyou.gitee.io/2016/08/15/split-array/index.html">
 <meta property="og:site_name" content="前端无忧网">
 <meta property="og:description" content="在某些时候，我们得到一个数组，需要每隔几位将数组拆分成新数组。 使用splicesplice()方法，向数组中添加/删除元素，返回被删除的元素组成的数组arr.splice(index,num,item1,…itemX) 注意，splice()方法是直接操作原数组的    参数 描述     index 必须。整数，添加/删除的起始位置，使用负数从数组结尾处开始   num 必须，删除的数量。如果">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-03-12T08:58:44.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数组分割方法splice()和slice()">
@@ -380,7 +381,7 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arr=[1,2,3,4,5,6,7,8,9,0];</div><div class="line">var result=[];</div><div class="line">while(arr.length)&#123;</div><div class="line">	result.push(arr.splice(0,3))</div><div class="line">&#125;</div><div class="line">console.log(result)</div><div class="line">`</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6,7,8,9,0];</span><br><span class="line">var result=[];</span><br><span class="line">while(arr.length)&#123;</span><br><span class="line">	result.push(arr.splice(0,3))</span><br><span class="line">&#125;</span><br><span class="line">console.log(result)</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 <h2 id="使用slice"><a href="#使用slice" class="headerlink" title="使用slice"></a>使用slice</h2><p>slice()方法主要是截取数组，并返回截取到的新数组<br>数组和字符串都可以使用slice方法<br>arr.slice(start,end)<br>参数|描述</p>
 <table>
 <thead>
@@ -400,7 +401,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>注意，slice()方法返回的是一个新的数组，不会改变原数组</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var arr=[1,2,3,4,5,6,7,8,9,0];</div><div class="line">var result=[];</div><div class="line">for(var i=0;i&lt;arr.length;i+=3)&#123;</div><div class="line">	result.push(arr.slice(i,i+3))</div><div class="line">&#125;</div><div class="line">console.log(result)</div></pre></td></tr></table></figure></p>
+<p><strong>注意，slice()方法返回的是一个新的数组，不会改变原数组</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6,7,8,9,0];</span><br><span class="line">var result=[];</span><br><span class="line">for(var i=0;i&lt;arr.length;i+=3)&#123;</span><br><span class="line">	result.push(arr.slice(i,i+3))</span><br><span class="line">&#125;</span><br><span class="line">console.log(result)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
