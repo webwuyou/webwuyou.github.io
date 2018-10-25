@@ -1,3 +1,3 @@
-https://liusaiadmin.gitee.io/webwuyou/2018/10/25/eventbus/
-https://liusaiadmin.gitee.io/webwuyou/2018/05/17/koa2/
-https://liusaiadmin.gitee.io/webwuyou/2017/07/03/vuex使用心得-state的使用/
+http://webwuyou.github.io/2018/10/25/eventbus/
+http://webwuyou.github.io/2018/05/17/koa2/
+http://webwuyou.github.io/2017/07/03/vuex使用心得-state的使用/
