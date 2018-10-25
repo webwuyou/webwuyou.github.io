@@ -1,3 +1,3 @@
+http://webwuyou.gitee.io/2018/10/25/eventbus/
 http://webwuyou.gitee.io/2018/05/17/koa2/
 http://webwuyou.gitee.io/2017/07/03/vuex使用心得-state的使用/
-http://webwuyou.gitee.io/2017/07/01/vuex教程一vuex的使用场景/

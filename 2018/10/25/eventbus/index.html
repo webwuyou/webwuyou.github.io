@@ -108,20 +108,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="前端无忧网">
-<meta property="og:url" content="http://webwuyou.gitee.io/archives/2017/02/index.html">
+  <meta name="description" content="在vue开发过程中，通常会遇到组件通信的问题，相信有一点开发经验的小伙伴都知道，父传子通过props，子传父通过$emit触发自定义事件，这样的文章也是非常多，不做过多的说明了。这里主要说下非父子组件之间的通信了。 非父子组件通信很多人第一反应就是使用vuex，但是对于很多小项目来说，没有必要使用vuex，这个时候使用eventBus事件总线就非常合适了。 新建一个js文件，命名为bus.js，b">
+<meta name="keywords" content="vue,组件通信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="eventbus">
+<meta property="og:url" content="http://webwuyou.gitee.io/2018/10/25/eventbus/index.html">
 <meta property="og:site_name" content="前端无忧网">
+<meta property="og:description" content="在vue开发过程中，通常会遇到组件通信的问题，相信有一点开发经验的小伙伴都知道，父传子通过props，子传父通过$emit触发自定义事件，这样的文章也是非常多，不做过多的说明了。这里主要说下非父子组件之间的通信了。 非父子组件通信很多人第一反应就是使用vuex，但是对于很多小项目来说，没有必要使用vuex，这个时候使用eventBus事件总线就非常合适了。 新建一个js文件，命名为bus.js，b">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-25T02:19:49.001Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端无忧网">
+<meta name="twitter:title" content="eventbus">
+<meta name="twitter:description" content="在vue开发过程中，通常会遇到组件通信的问题，相信有一点开发经验的小伙伴都知道，父传子通过props，子传父通过$emit触发自定义事件，这样的文章也是非常多，不做过多的说明了。这里主要说下非父子组件之间的通信了。 非父子组件通信很多人第一反应就是使用vuex，但是对于很多小项目来说，没有必要使用vuex，这个时候使用eventBus事件总线就非常合适了。 新建一个js文件，命名为bus.js，b">
 
 
 
 
 
 
-  <link rel="canonical" href="http://webwuyou.gitee.io/archives/2017/02/"/>
+  <link rel="canonical" href="http://webwuyou.gitee.io/2018/10/25/eventbus/"/>
 
 
 
@@ -131,7 +136,7 @@
   };
 </script>
 
-  <title>Archiv | 前端无忧网</title>
+  <title>eventbus | 前端无忧网</title>
   
 
 
@@ -178,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -223,7 +228,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
@@ -256,97 +261,202 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Öhm..! Insgesamt 18 Artikel. Bleib dran.
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://webwuyou.gitee.io/2018/10/25/eventbus/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘赛">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端无忧网">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/02/20/利用filter实现数组去重/" itemprop="url">
-              
-                <span itemprop="name">利用filter实现数组去重</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">eventbus
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-20T13:33:49+08:00"
-              content="2017-02-20" >
-          02-20
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
 
-    </header>
-  </article>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
 
+              
+                
+              
+
+              <time title="Post created: 2018-10-25 09:34:40 / Updated at: 10:19:49" itemprop="dateCreated datePublished" datetime="2018-10-25T09:34:40+08:00">2018-10-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>在vue开发过程中，通常会遇到组件通信的问题，相信有一点开发经验的小伙伴都知道，父传子通过props，子传父通过$emit触发自定义事件，这样的文章也是非常多，不做过多的说明了。这里主要说下非父子组件之间的通信了。</p>
+<p>非父子组件通信很多人第一反应就是使用vuex，但是对于很多小项目来说，没有必要使用vuex，这个时候使用eventBus事件总线就非常合适了。</p>
+<h2 id="新建一个js文件，命名为bus-js，bus-js内容如下"><a href="#新建一个js文件，命名为bus-js，bus-js内容如下" class="headerlink" title="新建一个js文件，命名为bus.js，bus.js内容如下"></a>新建一个js文件，命名为bus.js，bus.js内容如下</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">export default new Vue()</span><br></pre></td></tr></table></figure>
+<p>这样我们就创建了一个新的vue实例，接下来，我们在在组件中引入bus.js文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import bus from &apos;common/js/bus.js&apos;</span><br></pre></td></tr></table></figure></p>
+<p>在要触发的组件中，使用 bus.$emit(‘myEvent’,’参数’)</p>
+<p>在要接受的组件的生命周期钩子中接受<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bus.$on(&apos;myEvent&apos;,msg=&gt;&#123;</span><br><span class="line">	console.log(msg)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+            <a href="/tags/组件通信/" rel="tag"># 组件通信</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/17/koa2/" rel="next" title="koa2">
+                <i class="fa fa-chevron-left"></i> koa2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -367,8 +477,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -465,6 +584,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建一个js文件，命名为bus-js，bus-js内容如下"><span class="nav-number">1.</span> <span class="nav-text">新建一个js文件，命名为bus.js，bus.js内容如下</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -599,6 +734,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
