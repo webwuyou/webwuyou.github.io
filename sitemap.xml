@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://webwuyou.github.io/lib/canvas-nest/README.html</loc>
+    
+    <lastmod>2018-10-25T03:53:34.638Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://webwuyou.github.io/2018/10/25/eventbus/</loc>
     
     <lastmod>2018-10-25T02:19:49.001Z</lastmod>
