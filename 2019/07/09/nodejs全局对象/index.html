@@ -5,8 +5,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: let, 前端无忧网">
-    <meta name="description" content="标签: let | 前端无忧网">
+    <meta name="keywords" content="nodejs全局对象, 前端无忧网">
+    <meta name="description" content="__filename 当前执行脚本的文件名__dirname 当前执行脚本所在的文件目录setTimeout()clearTimeout()setInterval()clearInterval()console.log()123consol">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>标签: let | 前端无忧网</title>
+    <title>nodejs全局对象 | 前端无忧网</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -268,216 +268,320 @@
     </nav>
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+            <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="title center-align">
-                    
-                        生活不仅有coding，还有文字和音乐
-                    
-                    </div>
-
-                    <div class="description center-align">
-                    
-                        谜一样的浮世，每一步都未知
-                    
+                    <div class="description center-align post-title">
+                        nodejs全局对象
                     </div>
                 </div>
             </div>
         </div>
-        
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s6">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/nodejs/" target="_blank">
+                                <span class="chip bg-color">nodejs</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s6 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/nodejs/" class="post-category" target="_blank">
+                                nodejs
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <span class="post-date">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-07-09
+                </span>
+
+                
+				
+				
+                    <span id="busuanzi_container_page_pv" class="post-read">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+				
+            </div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="filename-当前执行脚本的文件名"><a href="#filename-当前执行脚本的文件名" class="headerlink" title="__filename 当前执行脚本的文件名"></a>__filename 当前执行脚本的文件名</h2><h2 id="dirname-当前执行脚本所在的文件目录"><a href="#dirname-当前执行脚本所在的文件目录" class="headerlink" title="__dirname 当前执行脚本所在的文件目录"></a>__dirname 当前执行脚本所在的文件目录</h2><h2 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout()"></a>setTimeout()</h2><h2 id="clearTimeout"><a href="#clearTimeout" class="headerlink" title="clearTimeout()"></a>clearTimeout()</h2><h2 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval()"></a>setInterval()</h2><h2 id="clearInterval"><a href="#clearInterval" class="headerlink" title="clearInterval()"></a>clearInterval()</h2><h2 id="console-log"><a href="#console-log" class="headerlink" title="console.log()"></a>console.log()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.time(&apos;获取数据&apos;)</span><br><span class="line">console.log(&apos;hello world&apos;)</span><br><span class="line">console.timeEnd(&quot;获取数据&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong> process.env 获取环境变量 </strong></p>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
 </script>
+            
 
-<main class="content">
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
 
+<div id="article-share">
     
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">文章标签</div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/css/" title="css: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="css" style="background-color: #F9EBEA;">css
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/ES6/" title="ES6: 5">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ES6" style="background-color: #F5EEF8;">ES6
-                        <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/解构赋值/" title="解构赋值: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="解构赋值" style="background-color: #D5F5E3;">解构赋值
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/拓展运算符/" title="拓展运算符: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="拓展运算符" style="background-color: #E8F8F5;">拓展运算符
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/babel/" title="babel: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="babel" style="background-color: #FEF9E7;">babel
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/let/" title="let: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="let" style="background-color: #F8F9F9;">let
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/const/" title="const: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="const" style="background-color: #82E0AA;">const
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/vue/" title="vue: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="vue" style="background-color: #D7BDE2;">vue
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/组件通信/" title="组件通信: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="组件通信" style="background-color: #A3E4D7;">组件通信
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/数组深拷贝/" title="数组深拷贝: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="数组深拷贝" style="background-color: #85C1E9;">数组深拷贝
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/对象深拷贝/" title="对象深拷贝: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="对象深拷贝" style="background-color: #F8C471;">对象深拷贝
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/nodejs/" title="nodejs: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="nodejs" style="background-color: #F9E79F;">nodejs
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/js/" title="js: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="js" style="background-color: #A3E4D7;">js
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/vue组件/" title="vue组件: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="vue组件" style="background-color: #F8C471;">vue组件
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">转载请注明: </span>
+                    <a href="http://webwuyou.github.io" class="b-link-green">前端无忧网</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/07/09/nodejs全局对象/" class="b-link-green">nodejs全局对象</a>
+                </p>
             </div>
         </div>
     </div>
-</div>
 
-    <div class="container">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
         
-
-        <article>
-            <div class="row tags-posts">
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="card">
+                <a href="/2019/07/09/nodejs-util模块之inspect/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="nodejs util模块之inspect">
+                        
+                        <span class="card-title">nodejs util模块之inspect</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">nodejs中util模块也叫工具模块，其中inspect主要用来将对象转换成字符串，类似于JSON.stringify（但是这两者又不是完全一样的，JSON.stringify()，一个对象哪些属性可以序列化是JSON规范的，比如对象里的</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/nodejs/" class="post-category" target="_blank">
+                                    nodejs
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nodejs/" target="_blank">
+                        <span class="chip bg-color">nodejs</span>
+                    </a>
+                    
+                </div>
                 
-                <div class="article tag-post col s12 m6 l4" data-tags="ES6, let, const" data-aos="fade-up">
-                    <div class="card">
-                        <a href="/2017/01/13/es6新版教程2-let和const新的声明方式/">
-                            <div class="card-image tag-image">
-                                
-                                
-                                <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="es6新版教程2-let和const新的声明方式">
-                                
-                                <span class="card-title">es6新版教程2-let和const新的声明方式</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="fa fa-clock-o fa-fw icon-date"></i>2017-01-13
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/ES6/" class="post-category" target="_blank">
-                                    ES6
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">下一篇</div>
+            <div class="card">
+                <a href="/2019/07/04/vued动态组件/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="vued动态组件">
+                        
+                        <span class="card-title">vued动态组件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">今天在做tab组件的时候，偶然发现component动态组件的用法，由于平时基本没用，都忘了还有它的存在了，一翻文档，发现还特别好用，看来以后还是要多用用了。
+话不多说，直接上代码：1234567&lt;button @click=&quo</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            刘赛
+                            
+                        </span>
                     </div>
                 </div>
                 
             </div>
-        </article>
+        </div>
+        
     </div>
+</article>
+</div>
+
+
+    
+
 </main>
 
 

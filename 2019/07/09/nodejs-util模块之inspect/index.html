@@ -5,9 +5,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vued动态组件, 前端无忧网">
-    <meta name="description" content="今天在做tab组件的时候，偶然发现component动态组件的用法，由于平时基本没用，都忘了还有它的存在了，一翻文档，发现还特别好用，看来以后还是要多用用了。
-话不多说，直接上代码：1234567&amp;lt;button @click=&amp;quo">
+    <meta name="keywords" content="nodejs util模块之inspect, 前端无忧网">
+    <meta name="description" content="nodejs中util模块也叫工具模块，其中inspect主要用来将对象转换成字符串，类似于JSON.stringify（但是这两者又不是完全一样的，JSON.stringify()，一个对象哪些属性可以序列化是JSON规范的，比如对象里的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vued动态组件 | 前端无忧网</title>
+    <title>nodejs util模块之inspect | 前端无忧网</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -273,13 +272,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        vued动态组件
+                        nodejs util模块之inspect
                     </div>
                 </div>
             </div>
@@ -299,8 +298,25 @@
             <div class="row tag-cate">
                 <div class="col s6">
                     
+                    <div class="article-tag">
+                        
+                            <a href="/tags/nodejs/" target="_blank">
+                                <span class="chip bg-color">nodejs</span>
+                            </a>
+                        
+                    </div>
+                    
                 </div>
                 <div class="col s6 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/nodejs/" class="post-category" target="_blank">
+                                nodejs
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -308,7 +324,7 @@
             <div class="post-info">
                 <span class="post-date">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-04
+                    2019-07-09
                 </span>
 
                 
@@ -324,9 +340,9 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>今天在做tab组件的时候，偶然发现component动态组件的用法，由于平时基本没用，都忘了还有它的存在了，一翻文档，发现还特别好用，看来以后还是要多用用了。</p>
-<p>话不多说，直接上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&quot;componentName=&apos;first&apos;&quot;&gt;组件2&lt;/button&gt;</span><br><span class="line">&lt;button @click=&quot;componentName=&apos;second&quot;&gt;组件2&lt;/button&gt;</span><br><span class="line">//这里是重点</span><br><span class="line">&lt;component :is=&quot;componentName&quot;&gt;&lt;/component&gt;</span><br><span class="line"></span><br><span class="line">import first from &quot;@/components/first&quot;</span><br><span class="line">import second from &quot;@/components/second&quot;</span><br></pre></td></tr></table></figure></p>
-<p>当动态改变componentName的值时，就可以渲染不同的组件内容了。</p>
+                <p>nodejs中util模块也叫工具模块，其中inspect主要用来将对象转换成字符串，类似于JSON.stringify（但是这两者又不是完全一样的，JSON.stringify()，一个对象哪些属性可以序列化是JSON规范的，比如对象里的方法不会序列化，而util.inspect()可以显示对象的所有内容）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const util=require(&quot;util&quot;)</span><br><span class="line">let obj=&#123;</span><br><span class="line">	name:&apos;张三&apos;,</span><br><span class="line">	age:18,</span><br><span class="line">	say:function()&#123;</span><br><span class="line">		console.log(&quot;hello world!&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(util.inspect(obj))</span><br><span class="line">console.log(JSON.stringify(obj))</span><br></pre></td></tr></table></figure>
+<p>util.inspect(obj,[showmore],[deepth])<br>第二个参数可选，是否显示详细信息<br>第三个参数可选，遍历的层级，默认为2级，如果设置为null,表示遍历对象所有层级，这在对象层级比较深的时候比较有用</p>
 
             </div>
             <hr/>
@@ -465,7 +481,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://webwuyou.github.io" class="b-link-green">前端无忧网</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/07/04/vued动态组件/" class="b-link-green">vued动态组件</a>
+                    <a href="/2019/07/09/nodejs-util模块之inspect/" class="b-link-green">nodejs util模块之inspect</a>
                 </p>
             </div>
         </div>
@@ -486,8 +502,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
+            <div class="card">
+                <a href="/2019/07/09/nodejs-util模块之inspect/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="nodejs util模块之inspect">
+                        
+                        <span class="card-title">nodejs util模块之inspect</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">nodejs中util模块也叫工具模块，其中inspect主要用来将对象转换成字符串，类似于JSON.stringify（但是这两者又不是完全一样的，JSON.stringify()，一个对象哪些属性可以序列化是JSON规范的，比如对象里的</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/nodejs/" class="post-category" target="_blank">
+                                    nodejs
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/nodejs/" target="_blank">
+                        <span class="chip bg-color">nodejs</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+            <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
                 <a href="/2019/07/09/nodejs全局对象/">
                     <div class="card-image">
@@ -501,9 +561,9 @@
                 <div class="card-content article-content">
                     <div class="summary">__filename 当前执行脚本的文件名__dirname 当前执行脚本所在的文件目录setTimeout()clearTimeout()setInterval()clearInterval()console.log()123consol</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -523,37 +583,6 @@
                         <span class="chip bg-color">nodejs</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">下一篇</div>
-            <div class="card">
-                <a href="/2019/01/23/vue打包后溢出隐藏代码失效/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="vue打包后溢出隐藏代码失效">
-                        
-                        <span class="card-title">vue打包后溢出隐藏代码失效</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">今天碰到一个小坑，vue项目在打包后，溢出隐藏，出现省略号的代码竟然失效了，必须加上123/*! autoprefixer: off */    -webkit-box-orient: vertical;    /* autoprefixe</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            刘赛
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
