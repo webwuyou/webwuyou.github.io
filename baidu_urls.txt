@@ -1,3 +1,3 @@
+http://webwuyou.github.io/2019/08/07/js中this原理/
 http://webwuyou.github.io/2019/07/22/nodejs文件流操作/
 http://webwuyou.github.io/2019/07/09/nodejs-util模块之inspect/
-http://webwuyou.github.io/2019/07/09/nodejs全局对象/

@@ -5,9 +5,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="nodejs文件流操作, 前端无忧网">
-    <meta name="description" content="nodejs里面fs文件模块算是用的非常频繁了，常用的方法也非常多，其中readFile和writeFile就是读取文件和写入文件了。
-123456789101112131415const fs=require(&amp;quot;fs&amp;quot;">
+    <meta name="keywords" content="js中this原理, 前端无忧网">
+    <meta name="description" content="问题的由来js中一个很容易混淆的很难理解的点就是this的指向问题了，在面试环节this的出场率绝对在90%以上，所以今天来复习下this，探讨一下this的原理。在很多时候我们会看到这样的写法1234567891011121314var ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>nodejs文件流操作 | 前端无忧网</title>
+    <title>js中this原理 | 前端无忧网</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -273,13 +272,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        nodejs文件流操作
+                        js中this原理
                     </div>
                 </div>
             </div>
@@ -308,7 +307,7 @@
             <div class="post-info">
                 <span class="post-date">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-22
+                    2019-08-07
                 </span>
 
                 
@@ -324,13 +323,29 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>nodejs里面fs文件模块算是用的非常频繁了，常用的方法也非常多，其中readFile和writeFile就是读取文件和写入文件了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const fs=require(&quot;fs&quot;)</span><br><span class="line">fs.readFile(&apos;input.txt&apos;,&quot;utf-8&quot;,(err,data)=&gt;&#123;</span><br><span class="line">	if(err)&#123;</span><br><span class="line">		console.log(err)</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		console.log(&quot;读取成功：&quot;+data)</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">fs.writeFile(&apos;output.txt&apos;,&quot;要写入的内容&quot;,err=&gt;&#123;</span><br><span class="line">	if(err)&#123;</span><br><span class="line">		console.log(err)</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		console.log(&quot;写入成功&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
-<p>这样读取和写入文件的弊端在于，需要将全部的文件内容放入内存中，再进行处理，如果文件过大，就很容易耗尽内存，造成卡顿。<br>而文件流操作是读取一部分就处理一部分，整个过程非常平缓，不会占用更多内存。</p>
-<h2 id="readStream读取文件流"><a href="#readStream读取文件流" class="headerlink" title="readStream读取文件流"></a>readStream读取文件流</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const fs=require(&quot;fs&quot;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 创建一个读取流 --&gt;</span><br><span class="line">const readStream=fs.createReadStream(&apos;input.txt&apos;)</span><br><span class="line">&lt;!-- 监听文件流 事件 --&gt;</span><br><span class="line">let str=&quot;</span><br><span class="line">readStream.on(&quot;data&quot;,chunk=&gt;&#123;</span><br><span class="line">	str+=chunk</span><br><span class="line">	&#125;)</span><br><span class="line">readStream.on(&quot;end&quot;,()=&gt;&#123;</span><br><span class="line">	console.log(&quot;读取完成&quot;)</span><br><span class="line">	&#125;)</span><br><span class="line">readStream.on(&quot;error&quot;,err=&gt;&#123;</span><br><span class="line">	console.log(err.stack)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="writeStream写入文件流"><a href="#writeStream写入文件流" class="headerlink" title="writeStream写入文件流"></a>writeStream写入文件流</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const fs=require(&quot;fs&quot;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 创建一个写入流 --&gt;</span><br><span class="line">const writeStream=fs.createWriteStream(&quot;output.txt&quot;)</span><br><span class="line"></span><br><span class="line">const data=&quot;要写入的文件内容&quot;</span><br><span class="line"></span><br><span class="line">&lt;!-- 以uft-8编码写入数据 --&gt;</span><br><span class="line">writeStream.write(data,&quot;utf-8&quot;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 标记文件末尾 --&gt;</span><br><span class="line">writeStream.end()</span><br><span class="line"></span><br><span class="line">writeStream.on(&quot;finish&quot;,()=&gt;&#123;</span><br><span class="line">	console.log(&quot;写入完成&quot;)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 监听失败 --&gt;</span><br><span class="line">writeStream.on(&quot;error&quot;,err=&gt;&#123;</span><br><span class="line">	console.log(err.stack)</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="pipe管道流"><a href="#pipe管道流" class="headerlink" title="pipe管道流"></a>pipe管道流</h2><p>管道流通常用于从一个流中获取数据然后传递到另外一个流中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const fs=require(&quot;fs&quot;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 创建一个读取流 --&gt;</span><br><span class="line">const readStream=fs.createReadStream(&quot;input.txt&quot;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 创建一个写入流 --&gt;</span><br><span class="line">const writeStream=fs.createWriteStream(&apos;output.txt&apos;)</span><br><span class="line"></span><br><span class="line">&lt;!-- 管道操作，读取input.txt里面的内容，然后写入out.txt中 --&gt;</span><br><span class="line"></span><br><span class="line">readStream.pipe(writeStream)</span><br><span class="line">console.log(&quot;执行完成&quot;)</span><br></pre></td></tr></table></figure></p>
-<h2 id="链式流"><a href="#链式流" class="headerlink" title="链式流"></a>链式流</h2><p>有的时候我们取消读取文件后，执行一定的操作处理后再写入另外一个文件，比如读取文件后合并、压缩完后写入另一个文件，这个时候使用链式流就非常方便了（和gulp里面的链式处理比较像，获取是jquery的链式操作）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const fs=require(&quot;fs&quot;)</span><br><span class="line">const zlib=require(&quot;zlib&quot;)//node中用于压缩和解压的系统模块</span><br><span class="line"></span><br><span class="line">先读取input.txt文件内容，然后压缩为input.txt.gz</span><br><span class="line">fs.createReadStream(&quot;input.txt&quot;)</span><br><span class="line">.pipe(zlib.createGzip())</span><br><span class="line">.pipe(fs.createWriteStream(&quot;input.txt.gz&quot;))</span><br></pre></td></tr></table></figure></p>
+                <h2 id="问题的由来"><a href="#问题的由来" class="headerlink" title="问题的由来"></a>问题的由来</h2><p>js中一个很容易混淆的很难理解的点就是this的指向问题了，在面试环节this的出场率绝对在90%以上，所以今天来复习下this，探讨一下this的原理。<br>在很多时候我们会看到这样的写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;</span><br><span class="line">	foo:function()&#123;</span><br><span class="line">		console.log(this.bar)</span><br><span class="line">	&#125;,</span><br><span class="line">	bar:1</span><br><span class="line">&#125;</span><br><span class="line">var foo=obj.foo</span><br><span class="line">var bar=2</span><br><span class="line"></span><br><span class="line">//写法一</span><br><span class="line">obj.foo()//1</span><br><span class="line"></span><br><span class="line">//写法二</span><br><span class="line">foo()//2</span><br></pre></td></tr></table></figure></p>
+<p>按照道理来讲obj.foo和foo指向的是同一个函数，但是为什么执行结果不一样呢？</p>
+<p><strong>这里就是老生常谈的this的指向问题了</strong></p>
+<blockquote>
+<p>在很多地方我们都会看到这样的说法，this指向的是函数运行时所在的环境（即执行上下文）。对于obj.foo()来说，foo运行在obj环境，所以this指向obj；对于foo()来说，foo运行在全局环境，所以this指向全局环境。所以两次的结果不一样。<br>这种解释没错，但是函数的运行环境到底是什么决定的？为什么obj.foo()执行环境是obj，foo()在全局环境执行？</p>
+</blockquote>
+<h2 id="内存的数据结构"><a href="#内存的数据结构" class="headerlink" title="内存的数据结构"></a>内存的数据结构</h2><p>js之所以有this的设计，跟内存里的数据结构有关系。<br><img src="https://www.wangbase.com/blogimg/asset/201806/bg2018061801.png" alt="alt"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;foo:5&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码就一个对象赋值给变量obj。js会在内存里生成一个对象｛foo：5｝，然后把这个对象的内存地址赋值给变量obj，<strong>也就是说遍历obj里面存储的是一个地址</strong>，要想兑取obj.foo的值，js引擎先从变量obj拿到地址，然后再从该地址读取出原始对象的内容，返回foo属性的值。</p>
+<p>而原始的对象是以字典结构保存的，没一个属性都对应一个属性描述对象（内容，是否可写等）<br><img src="https://www.wangbase.com/blogimg/asset/201806/bg2018061802.png" alt="alt"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  foo: &#123;</span><br><span class="line">    [[value]]: 5</span><br><span class="line">    [[writable]]: true</span><br><span class="line">    [[enumerable]]: true</span><br><span class="line">    [[configurable]]: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>上面的情况是对象的属性只是一个普通的数值，如果属性是一个函数呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;</span><br><span class="line">	foo:function()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201806/bg2018061803.png" alt="alt"></p>
+<p>这是js引擎会将函数单独保存在内存中，然后再将函数的所在的内存地址赋值给foo属性的value值。</p>
+<p><strong>由于函数是单独存放的值，所以它可以在不同的环境（上下文）执行</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var f=function()&#123;&#125;</span><br><span class="line">var obj=&#123;f:f&#125;</span><br><span class="line">//单独执行</span><br><span class="line">f()</span><br><span class="line">//obj环境执行</span><br><span class="line">obj.f()</span><br></pre></td></tr></table></figure></p>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p><strong>js允许在函数体内部，引用当前执行环境的其他变量</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var f=function()&#123;</span><br><span class="line">	console.log(x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，函数体里面使用了变量X，该变量由运行环境提供。</p>
+<blockquote>
+<p>现在问题来了，由于函数可以在不同的运行环境执行，所以需要有一种机制，能够在函数体内部获取当前的运行环境。所以this出现了，它的设计目的就是在函数体内部，指代函数当前的运行环境。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var f=function()&#123;</span><br><span class="line">	console.log(this.x)</span><br><span class="line">&#125;</span><br><span class="line">var x=1;</span><br><span class="line">var obj=&#123;</span><br><span class="line">	f:f,</span><br><span class="line">	x:2</span><br><span class="line">&#125;</span><br><span class="line">//单独执行</span><br><span class="line">f()//1</span><br><span class="line">//obj环境</span><br><span class="line">obj.f()//2</span><br></pre></td></tr></table></figure>
+<p>在上面代码中，函数f在全局执行，this.x指向全局环境的x<br><img src="https://www.wangbase.com/blogimg/asset/201806/bg2018061804.png" alt="alt"><br>在obj执行环境，this.x指向obj.x<br><img src="https://www.wangbase.com/blogimg/asset/201806/bg2018061805.png" alt="alt"></p>
+<blockquote>
+<p>回到开头的问题，obj.foo()是通过obj找到foo，所以就是在obj执行环境。一旦var foo=obj.foo，变量foo就是直接指向函数本身，所以foo就变成在全局环境执行。</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -469,7 +484,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://webwuyou.github.io" class="b-link-green">前端无忧网</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/07/22/nodejs文件流操作/" class="b-link-green">nodejs文件流操作</a>
+                    <a href="/2019/08/07/js中this原理/" class="b-link-green">js中this原理</a>
                 </p>
             </div>
         </div>
@@ -490,8 +505,8 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
                 <a href="/2019/08/07/js中this原理/">
                     <div class="card-image">
@@ -505,9 +520,9 @@
                 <div class="card-content article-content">
                     <div class="summary">问题的由来js中一个很容易混淆的很难理解的点就是this的指向问题了，在面试环节this的出场率绝对在90%以上，所以今天来复习下this，探讨一下this的原理。在很多时候我们会看到这样的写法1234567891011121314var </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -516,6 +531,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -524,40 +540,29 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2019/07/09/nodejs-util模块之inspect/">
+                <a href="/2019/07/22/nodejs文件流操作/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="nodejs util模块之inspect">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="nodejs文件流操作">
                         
-                        <span class="card-title">nodejs util模块之inspect</span>
+                        <span class="card-title">nodejs文件流操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">nodejs中util模块也叫工具模块，其中inspect主要用来将对象转换成字符串，类似于JSON.stringify（但是这两者又不是完全一样的，JSON.stringify()，一个对象哪些属性可以序列化是JSON规范的，比如对象里的</div>
+                    <div class="summary">nodejs里面fs文件模块算是用的非常频繁了，常用的方法也非常多，其中readFile和writeFile就是读取文件和写入文件了。
+123456789101112131415const fs=require(&quot;fs&quot;</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-09
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/nodejs/" class="post-category" target="_blank">
-                                    nodejs
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            刘赛
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/nodejs/" target="_blank">
-                        <span class="chip bg-color">nodejs</span>
-                    </a>
-                    
                 </div>
                 
             </div>
