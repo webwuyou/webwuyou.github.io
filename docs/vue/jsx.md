@@ -1,6 +1,11 @@
+---
+sidebar: auto,
+editLink: true
+---
+
 > 大多数时候，我们都是SFC单文件组件的形式来编写组件，但是使用渲染函数更接近编译器，性能也会更好
 
-#### JSX基本语法
+## JSX基本语法
 
 单行语句可以直接return，多行语句需要使用()包裹
 
@@ -10,7 +15,7 @@ render(){
 }
 ```
 
-#### 插值绑定
+## 插值绑定
 
 绑定数据，在单文件组件中，使用双大括号的形式来邦定文本数据{{message}}，在jsx中使用大括号就行了。
 
@@ -19,14 +24,14 @@ render(){
     return <p>hello {this.message}</p>
 }
 ```
-#### html绑定
+## html绑定
 ```jsx
 render(){
     return <div domPropsInnerHTML={html}></div>
 }
 ```
 
-#### 样式绑定
+## 样式绑定
 在jsx中，可以直接使用class="className"来指定样式类名，可以直接只用style="xxx"来指定内联样式，动态样式就需要使用双大括号了{{}}
 ```jsx
 // 静态样式
@@ -49,7 +54,7 @@ render(){
 }
 ```
 
-#### 属性绑定
+## 属性绑定
 在单文件组件中属性绑定通常是:id="{id}"这样的形式，在jsx中属性绑定不需要使用:和引号，并且可以通过对象解构的形式绑定多个属性
 ```jsx
 render(){
@@ -65,8 +70,11 @@ render(){
     )
 }
 ```
+ jsx中的属性主要分为三类，分别是父组件传给子组件的props属性，父组件传给子组件的attrs属性（子组件中没有定义对应的props），dom原生的属性。dom原生属性主要是指innerHTML、innerText、textContent，**在使用的时候前面需要加上domProps**，比如domPropsInnerHTML，domPropsInnerText,domPropsTextContent。
 
-#### 遍历数据
+**domPropsInnerText就相当于单文件组件中的v-text指令，一般直接很少使用，使用插值绑定属性会更简洁**
+
+## 遍历数据
 在jsx中没有v-for和v-if等指令，这些需要使用原生js的方式来实现
 ```jsx
 // 类似于v-if v-else
@@ -88,7 +96,7 @@ render(){
 
 ```
 
-#### 事件绑定
+## 事件绑定
 事件绑定需要在事件名前面加**on**前缀，原生事件添加**nativeOn**前缀
 **以下几种都可以用来绑定事件，不同版本的babel可能写法不一样**
 ```
@@ -110,7 +118,7 @@ render(){
 **注意：如果要给事件处理函数传递参数，需要使用箭头函数，否则接收到的会是事件对象的event属性**
 
 
-#### slot插槽与slotScope
+## slot插槽与slotScope
 **slot插槽**
 
 ```jsx
