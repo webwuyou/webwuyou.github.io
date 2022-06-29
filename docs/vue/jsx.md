@@ -19,16 +19,33 @@ render(){
     return <p>hello {this.message}</p>
 }
 ```
+#### html绑定
+```jsx
+render(){
+    return <div domPropsInnerHTML={html}></div>
+}
+```
 
 #### 样式绑定
-在jsx中，可以直接使用class="className"来指定样式类名，可以直接只用style="xxx"来指定内联样式
+在jsx中，可以直接使用class="className"来指定样式类名，可以直接只用style="xxx"来指定内联样式，动态样式就需要使用双大括号了{{}}
 ```jsx
+// 静态样式
 render(){
     return (<ul class="wrap">
         <li>vue</li>
         <li style="color:red">js</li>
         <li>html</li>
     </ul>)
+}
+```
+```jsx
+// 动态样式
+render(){
+    return (
+        <ul class={{'wrap':true,'active':false}}>
+            <li class={`is-${this.isDefault?'default':''}`} style={{color:'red',fontSize:'14px'}}></li>
+        </ul>
+    )
 }
 ```
 
@@ -55,15 +72,30 @@ render(){
 // 类似于v-if v-else
 {isShow?<List/>:<Empty/>}
 
-// 类似于v-for
-{this.list.map(item=>{
-    <div>{item.title}</div>
-})}
+render(){
+    return (
+        <ul>
+            {
+                // 类似于v-for
+                {this.list.map(item=>{
+                    return <li>{item.title}</li>
+                })}
+            }
+        </ul>
+    )
+}
+
 
 ```
 
 #### 事件绑定
 事件绑定需要在事件名前面加**on**前缀，原生事件添加**nativeOn**前缀
+**以下几种都可以用来绑定事件，不同版本的babel可能写法不一样**
+```
+<button onClick={this.handleClick}>使用onClick绑定</button>
+<button vOn:click={this.handleClick}>使用vOn绑定</button>
+<button on-click={this.handleClick}>使用on-click绑定</button>
+```
 ```jsx
 render(){
     return (
@@ -76,5 +108,75 @@ render(){
 }
 ```
 **注意：如果要给事件处理函数传递参数，需要使用箭头函数，否则接收到的会是事件对象的event属性**
+
+
+#### slot插槽与slotScope
+**slot插槽**
+
+```jsx
+// 子组件
+render(){
+    return (
+        <div class="header">
+        {this.$slots.title}
+        {this.$slots.default}
+        </div>
+    )
+}
+```
+相当于单文件组件中的模板
+```vue
+<template>
+    <div class="header">
+        <slot name="title"></slot>
+        <slot></slot>
+    </div>
+</template>
+```
+```jsx
+// 父组件
+render(){
+    return (
+        <MyHeader>
+            <h1>具名插槽</h1>
+            <p>默认插槽</p>
+        </MyHeader>
+    )
+}
+```
+
+**slotScope作用域插槽**
+子组件中通过this.$scoopedSlots.test({user:this.user})，指定插槽的名称是test，并将user传给父组件。父组件通过scopedSlots指定插入的位子是test，并且在回调函数中获取到子组件传递过来的user值
+
+```jsx
+// 子组件
+render(){
+    return (
+        <div>
+            {this.$scopedSlots.test({user:this.user})}
+        </div>
+    )
+}
+
+```
+```jsx
+// 父组件
+render(){
+    return (
+        <div>
+            <h1>用户信息</h1>
+            <User {...{
+                scopedSlots:{
+                    test:({user})=>(
+                        <div>{user.name}</div>
+                    )
+                }
+            }}>
+            </User>
+        </div>
+    )
+}
+
+```
 
 
