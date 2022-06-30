@@ -117,6 +117,81 @@ render(){
 ```
 **注意：如果要给事件处理函数传递参数，需要使用箭头函数，否则接收到的会是事件对象的event属性**
 
+如果绑定的事件过多，可以使用...展开运算符来简化
+```jsx
+render(){
+    return (
+        <input onInput={this.handleInput} onClick={this.handleClick} onMouseover={this.handleMouseover}/>
+        // 简写
+        <input {...{on:{
+            'input':this.handleInput,
+            'click':this.handleClick,
+            'mouseover':this.handleMouseover
+        }}} />
+    )
+}
+```
+
+
+## 指令
+在jsx中只能使用v-show这一个系统指令，v-model需要插件才能支持，其他的指令几乎都不支持的，所以在jsx中，尽量不要使用指令，使用js来实现逻辑会更灵活
+```jsx
+render(){
+    return (
+        <div>
+        <input v-show={this.showInput} v-model={this.msg} />
+        // 使用v-model就不能使用.trim,.lazy,.number这样的修饰符了，可以换成vModel的形式
+        <input vModel={this.msg} />
+        // vModel_trim .trim修饰符 vModel_lazy .lazy修饰符
+        <input vModel_trim={this.msg} />
+        <button onClick={()=>this.showInput=!this.showInput}>{this.showInput?'隐藏':'显示'}</button>
+        </div>
+    )
+}
+```
+
+## 事件&按键修饰符
+
+对于.passive，.capture和.once这些事件修饰符，为了方便使用，vue提供了相对应的前缀来简写
+|修饰符|前缀|
+|-|-|
+|.passive|&|
+|.capture|!|
+|.once|~|
+|.capture.once或.once.capture|~!|
+
+```jsx
+render(){
+    return (
+        <div>
+            <input 
+                onInput={this.handleInput} 
+                onClick={this.handleClick} 
+                onMouseover={this.handleMouseover} />
+                <input {...{on:{
+                    '&input':this.handleInput,
+                    '!click':this.handleClick,
+                    '~!mouseover':this.handleMouseover
+                }}} />
+        </div>
+    )
+}
+```
+对于其他的修饰符，可以在事件处理函数中使用事件方法来处理
+|修饰符|函数中的等价操作|
+|-|-|
+|.stop|event.stopPropagation()|
+|.prevent|event.preventDefault()|
+|.self|if(event.target!==event.currentTarget) return|
+|按键：.enter,.13|if(event.keyCode!==13) return |
+|修饰符：.ctrl,.alt,.shift,.meta|if(!event.ctrlKey) return，altKey,shiftKey,metaKey|
+
+**在使用vOn和vModel的时候，可以通过_的形式使用修饰符，比如vOn:click_stop等价于@click.stop，vOn:click_prevent等价于@click.prevent**
+```jsx
+render(){
+    return <button vOn:click_stop_prevent={this.handleClick}>使用vOn:click绑定事件并使用事件修饰符</button>
+}
+```
 
 ## slot插槽与slotScope
 **slot插槽**
