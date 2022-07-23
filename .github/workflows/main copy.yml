@@ -22,7 +22,7 @@ jobs:
         run: npm install && npm run build
 
       # 部署到 GitHub Pages
-      - name: Deploy github
+      - name: Deploy
         # 使用别人写好的一个 action
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
@@ -32,16 +32,3 @@ jobs:
           BRANCH: gh-pages
           # 打包后的文件在哪里
           FOLDER: docs/.vitepress/dist
-      - name: Deploy gitee
-        uses: Yikun/hub-mirror-action@master
-        with: 
-          #必选 需要同步的github用户（源仓库）
-          src: github/webwuyou
-          #必选 需要同步到的gitee用户（目录仓库）
-          dst: gitee/webwuyou
-          # 必选，Gitee公钥对应的私钥，https://gitee.com/profile/sshkeys
-          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-          # 必选，Gitee对应的用于创建仓库的token，https://gitee.com/profile/personal_access_tokens
-          dst_token: ${{ secrets.GITEE_TOKEN }}
-          # 直接取当前项目的仓库名
-          static_list: ${{ github.event.repository.name }}
