@@ -7,8 +7,9 @@ module.exports = {
   themeConfig: {
     siteTitle: '前端文档',
     algolia: {
-      apiKey: '7eeb6e245e44d4122e6d2bc592b6b1b6',
-      indexName: 'index_name',
+      appId: 'OXAFBDQWGS',
+      apiKey: '68a645805a0cc46ca96051b6d7d6f1f2',
+      indexName: 'liu',
     },
     sidebar: [
       {
