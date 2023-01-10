@@ -20,18 +20,29 @@ module.exports = {
         items:[
           {text: 'js对象特征', link: '/js/object'},
           {text: 'class类', link: '/js/class'},
+          {text: '分片上传', link: '/js/分片上传'},
         ]
       }
       ],
       '/nestjs': [
+        // {
+        //   text: 'nest',
+        //   collapsible: true,
+        //   // collapsed: true,
+        //   items: [
+        //     {text: '控制器', link: '/nestjs/controller'},
+        //     {text: '服务', link: '/nestjs/service'},
+        //     {text: '模块', link: '/nestjs/module'},
+        //   ],
+        // },
         {
-          text: 'nest',
+          text: 'typeOrm',
           collapsible: true,
           // collapsed: true,
           items: [
-            {text: '用户鉴权', link: '/nestjs/auth'},
-            {text: 'typeOrm', link: '/nestjs/typeorm'},
-            {text: '内容关系', link: '/nestjs/relation'},
+            {text: '用户鉴权', link: '/typeorm/auth'},
+            {text: 'typeOrm', link: '/typeorm/typeorm'},
+            {text: '内容关系', link: '/typeorm/relation'},
           ],
         },
       ],
@@ -43,7 +54,12 @@ module.exports = {
         items: [{text: 'jsx', link: '/vue/jsx'}],
       },
       {text: 'typescript', link: '/typescript/'},
+      {
+        text: 'nuxt',
+        items: [{text: 'nuxt3', link: '/nuxt/nuxt3'}],
+      },
       {text: 'nestjs', link: '/nestjs/auth'},
+      {text: 'svelte', link: '/svelte/'},
       {text: 'npm', link: '/npm/'},
       {text: 'docker', link: '/docker/'},
     ],
