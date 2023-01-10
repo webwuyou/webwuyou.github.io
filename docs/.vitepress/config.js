@@ -7,9 +7,12 @@ module.exports = {
   themeConfig: {
     siteTitle: '前端文档',
     algolia: {
-      appId: 'OXAFBDQWGS',
-      apiKey: '68a645805a0cc46ca96051b6d7d6f1f2',
-      indexName: 'liu',
+      // appId: 'OXAFBDQWGS',
+      // apiKey: '68a645805a0cc46ca96051b6d7d6f1f2',
+      // indexName: 'liu',
+      appId: 'TAN27QR9AO',
+      apiKey: 'e679618a1fc8b88ecd4f43895f7deeb5',
+      indexName: 'webwuyou.github.io',
     },
     sidebar: {
       // '/guide':[
@@ -52,6 +55,7 @@ module.exports = {
           {text: '目录结构', link: '/nuxt/nuxt3/'},
           {text: '路由配置', link: '/nuxt/nuxt3/router'},
           {text: '静态资源', link: '/nuxt/nuxt3/static'},
+          {text: '数据获取', link: '/nuxt/nuxt3/data'},
         ]
       }
       ],
@@ -65,7 +69,7 @@ module.exports = {
       {text: 'typescript', link: '/typescript/'},
       {
         text: 'nuxt',
-        items: [{text: 'nuxt3', link: '/nuxt/nuxt3'}],
+        items: [{text: 'nuxt3', link: '/nuxt/nuxt3/'}],
       },
       {text: 'nestjs', link: '/nestjs/auth'},
       {text: 'svelte', link: '/svelte/'},
