@@ -40,11 +40,20 @@ module.exports = {
           collapsible: true,
           // collapsed: true,
           items: [
-            {text: '用户鉴权', link: '/typeorm/auth'},
-            {text: 'typeOrm', link: '/typeorm/typeorm'},
-            {text: '内容关系', link: '/typeorm/relation'},
+            {text: '用户鉴权', link: '/nestjs/auth'},
+            {text: 'typeOrm', link: '/nestjs/typeorm'},
+            {text: '内容关系', link: '/nestjs/relation'},
           ],
         },
+      ],
+      '/nuxt/nuxt3':[{
+        // text:'js',
+        items:[
+          {text: '目录结构', link: '/nuxt/nuxt3/'},
+          {text: '路由配置', link: '/nuxt/nuxt3/router'},
+          {text: '静态资源', link: '/nuxt/nuxt3/static'},
+        ]
+      }
       ],
     },
     nav: [
